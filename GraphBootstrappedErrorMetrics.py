@@ -7,6 +7,9 @@ from multiprocessing import Process, Manager
 import sys
 import os
 from pathlib import Path
+from PlotStyle import applyPlotStyle
+
+applyPlotStyle()
 
 # Attempts to create a folder
 def attemptCreateFolder(path):
@@ -132,7 +135,7 @@ def graph(sourceFilename, sourceName, siteFilenames, frequency, threshold):
   axs = axs.flatten()
 
   for i, title in enumerate(["RMSE", "Bias", "MAE", "R^2"]):
-    axs[i].set_title(title)
+    axs[i].set_title(title.upper())
     axs[i].grid()
     axs[i].tick_params(axis="x", rotation=90)
 
@@ -176,7 +179,7 @@ def graph(sourceFilename, sourceName, siteFilenames, frequency, threshold):
       axs[i].errorbar(["NEUS"], [confidence[0]], yerr=yErr, fmt="o", capsize=5, color="green")
 
   # Format and save graph
-  plt.suptitle(f"Sites vs {sourceName} ({frequency}hr frequency)\n{threshold}mm Threshold")
+  plt.suptitle(f"Sites vs {sourceName} ({frequency}hr frequency)\n{threshold}mm Threshold".upper())
 
   plt.gcf().set_size_inches(16, 10)
   plt.tight_layout()

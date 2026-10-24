@@ -3,6 +3,9 @@ import sys
 from matplotlib import pyplot as plt
 from sklearn.linear_model import LinearRegression
 import numpy as np
+from PlotStyle import applyPlotStyle
+
+applyPlotStyle()
 
 # Returns coefficient (m), intercept (b), and r^2 value
 def getLinearRegression(x, y):
@@ -54,9 +57,9 @@ def graphAllMetrics(allData, xAxisLabel, xAxis, markers, graphTitle, saveName):
       alpha=0.75,
       linewidth=1
     )
-    plt.title(f"y ~ {round(m, 5)}x + {round(b, 3)}\nR^2: {round(r2, 3)}")
+    plt.title(f"y ~ {round(m, 5)}x + {round(b, 3)}\nR^2: {round(r2, 3)}".upper())
 
-  plt.suptitle(graphTitle)
+  plt.suptitle(graphTitle.upper())
   plt.gcf().set_size_inches(13, 6.5)
   plt.tight_layout()
   plt.savefig(saveName, dpi=300, bbox_inches="tight")

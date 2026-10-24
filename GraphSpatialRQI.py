@@ -3,6 +3,9 @@ import sys
 import geopandas as gpd
 import cartopy.crs as ccrs
 from matplotlib import pyplot as plt
+from PlotStyle import applyPlotStyle
+
+applyPlotStyle()
 
 def graph(siteInfoFilename, rqiFilename, mapFilename):
   # Open files

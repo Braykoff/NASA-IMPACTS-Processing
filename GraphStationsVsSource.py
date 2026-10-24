@@ -5,6 +5,9 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 import sys
 import os
+from PlotStyle import applyPlotStyle
+
+applyPlotStyle()
 
 binSize = 2.5 # mm
 
@@ -143,7 +146,7 @@ def graphSiteVsSource(siteData, sourceName, sourceData, siteName, frequency, thr
     f"Mean Bias: {round(bias, 3)}, Mean Bias Percent Error: {round(mbpe, 3)}%",
     f"Mean Absolute Error: {round(mae, 3)}, Mean Absolute Percent Error: {round(mape, 3)}%"
   ]
-  plt.suptitle("\n".join(title))
+  plt.suptitle("\n".join(title).upper())
 
   # Format
   plt.gcf().set_size_inches(13, 7)

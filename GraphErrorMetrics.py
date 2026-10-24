@@ -6,6 +6,9 @@ from matplotlib import pyplot as plt
 from sklearn.linear_model import LinearRegression
 import numpy as np
 from pyproj import Geod
+from PlotStyle import applyPlotStyle
+
+applyPlotStyle()
 
 # Returns coefficient (m), intercept (b), and r^2 value
 def getLinearRegression(x, y):
@@ -74,9 +77,9 @@ def graphAllMetrics(allData, xAxisLabel, xAxis, markers, graphTitle, saveName):
       alpha=0.75,
       linewidth=1
     )
-    plt.title(f"y ~ {round(m, 5)}x + {round(b, 3)}\nR^2: {round(r2, 3)}")
+    plt.title(f"y ~ {round(m, 5)}x + {round(b, 3)}\nR^2: {round(r2, 3)}".upper())
 
-  plt.suptitle(graphTitle)
+  plt.suptitle(graphTitle.upper())
   plt.gcf().set_size_inches(13, 6.5)
   plt.tight_layout()
   plt.savefig(saveName, dpi=300, bbox_inches="tight")
@@ -196,9 +199,9 @@ def graph(siteInfoFilename, metricsFilename, nexradFilename, mapFile, saveName):
       )
 
     plt.colorbar(ax=ax, shrink=.5, extend="both")
-    ax.set_title(title)
+    ax.set_title(title.upper())
   
-  plt.suptitle(f"Sites/{saveName} Error Metrics")
+  plt.suptitle(f"Sites/{saveName} Error Metrics".upper())
   filename = f"graphs/Sites_vs_{saveName}_ErrorMetricsSpatial.jpg"
   plt.gcf().set_size_inches(16, 9) # 15, 11 for square graphs
   plt.tight_layout()
